@@ -1,0 +1,9 @@
+root:root
+teacher:teacher
+student:student
+login:1
+start_time:[1733104680.0]
+end_time:[1735351080.0]
+password_root:123456
+password_teacher:123456
+password_student:123456
