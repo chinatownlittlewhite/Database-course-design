@@ -1,103 +1,212 @@
-# SQL Server 学生管理系统开发文档
+# 现代学生信息管理系统 (Modern Student Information System)
 
-## 1. 项目概述
+[![Python](https://img.shields.io/badge/Python-3.x-blue.svg)](https://www.python.org/)
+[![Streamlit](https://img.shields.io/badge/Framework-Streamlit-ff69b4.svg)](https://streamlit.io/)
+[![Database](https://img.shields.io/badge/Database-SQL%20Server-CC2927.svg)](https://www.microsoft.com/en-us/sql-server)
+[![Status](https://img.shields.io/badge/Status-In%20Development-orange.svg)]()
 
-### 1.1 项目背景
-随着教育信息化的不断推进，学校对学生的管理需求日益增长，传统的手工管理方式已无法满足现代教育的需求。为了提高学生管理的效率和质量，开发一个基于 SQL Server 的学生管理系统显得尤为重要。该系统将为学校提供一个集学生信息管理、教学评价、课程预选、班级交流等功能于一体的综合性平台，实现学生管理工作的数字化、智能化。
+## 🌟 项目概览
 
-### 1.2 项目目标
-- 实现学生、教师和管理员的登录与权限管理，确保系统的安全性。
-- 提供学生信息的查询、编辑、添加和删除功能，方便学校对学生基本信息的管理。
-- 为教师提供成绩录入、班级交流、教学评价等功能，提高教师的教学管理效率。
-- 为学生提供课程预选、教学评价、班级交流等功能，增强学生的参与度和互动性。
-- 实现教务通知的发布与管理，确保学校通知的及时传达。
-- 提供课程统计和成绩统计功能，为学校教务决策提供数据支持。
+本项目是一个基于 Streamlit 和 SQL Server 构建的现代化、一体化的学生信息管理系统。旨在解决传统教务管理中数据分散、更新滞后、权限混乱等痛点，为**学生、教师、管理员**三方提供一个高效、安全、便捷的在线平台。
 
-## 2. 系统功能模块
+系统通过清晰的角色划分和强大的后台数据库支持，实现了从个人信息维护、在线选课、成绩管理到教务通知、课堂交流的全流程数字化管理。
 
-### 2.1 登录模块
-- **用户角色选择**：用户在登录界面选择自己的角色（学生、教师、管理员）。
-- **登录验证**：根据用户输入的账号和密码进行验证，若验证成功则进入相应的功能界面，否则提示账号或密码错误。
+## ✨ 核心功能
 
-### 2.2 管理员模块
-- **教师管理**：管理员可以查询、编辑、添加和删除教师信息。
-- **学生管理**：管理员可以查询、编辑、添加和删除学生信息。
-- **教务通知管理**：管理员可以发布、查询、编辑和删除教务通知。
-- **课程统计**：管理员可以查看课程的选课人数和成绩统计信息。
-- **班级交流区管理**：管理员可以查看班级交流区的消息。
-- **课程评价与预选课程管理**：管理员可以设定系统开放时间，查看课程评价和预选课程情况。
-- **密码修改**：管理员可以修改自己的密码。
+<details>
+<summary><b>👨‍🎓 学生端功能</b></summary>
 
-### 2.3 教师模块
-- **信息查询**：教师可以查询和更新自己的信息，查看所教班级的学生信息。
-- **成绩录入**：教师可以录入和修改学生的成绩。
-- **班级交流区**：教师可以查看和发送班级交流区的消息，撤回自己发送的消息。
-- **教务通知**：教师可以查看教务通知。
-- **密码修改**：教师可以修改自己的密码。
+- **个人中心**: 查询与修改个人基本信息（姓名、邮箱、专业等）。
+- **选课系统**: 在线浏览课程列表，自由进行选课与退课操作。
+- **成绩查询**: 实时查看所有已修课程的成绩。
+- **教务通知**: 接收并查阅管理员发布的最新教务通知。
+- **课堂互动**: 参与所选课程的在线交流区，与师生互动。
 
-### 2.4 学生模块
-- **信息查询**：学生可以查询和更新自己的信息，查看自己的课程信息。
-- **教学评价与课程预选**：学生可以在系统开放时间内进行教学评价和课程预选。
-- **班级交流区**：学生可以查看和发送班级交流区的消息，撤回自己发送的消息。
-- **教务通知**：学生可以查看教务通知。
-- **密码修改**：学生可以修改自己的密码。
+</details>
 
-## 3. 系统架构
+<details>
+<summary><b>👩‍🏫 教师端功能</b></summary>
 
-### 3.1 技术栈
-- **前端**：Streamlit，用于构建用户界面。
-- **后端**：Python。
-- **数据库**：SQL Server，用于存储学生、教师、课程等数据。
+- **课程管理**: 查看自己所授课程列表及详细的选课学生名单。
+- **成绩录入**: 方便地上传、修改和发布学生的课程成绩。
+- **个人信息**: 管理个人基本资料。
+- **信息获取**: 接收教务通知，参与课程交流。
 
-### 3.2 数据库设计
-- **学生表**：存储学生的基本信息，如学生ID、姓名、邮箱、专业、年级、性别等。
-- **教师表**：存储教师的基本信息，如教师ID、姓名、邮箱、职位、性别等。
-- **课程表**：存储课程的基本信息，如课程ID、课程名、学分、教师ID等。
-- **成绩表**：存储学生的成绩信息，如学生ID、课程名、成绩等。
-- **教学评价表**：存储学生的教学评价信息，如学生ID、课程名、评分等。
-- **预选课程表**：存储学生的预选课程信息，如学生ID、课程名等。
-- **教务通知表**：存储教务通知的信息，如通知ID、标题、内容、发布人、发布时间、生效日期、到期日期、状态等。
-- **班级交流区表**：存储班级交流区的消息信息，如消息ID、课程名、发言人类型、发言人姓名、内容、发布时间等。
+</details>
 
-### 3.3 系统流程
-- 用户登录系统，选择角色并输入账号和密码进行验证。
-- 根据用户角色进入相应的功能界面。
-- 用户在功能界面进行相应的操作，如查询、编辑、添加、删除信息等。
-- 系统将操作结果反馈给用户，并更新数据库中的数据。
+<details>
+<summary><b>⚙️ 管理员端功能</b></summary>
 
-## 4. 开发环境与工具
+- **全方位管理**: 集中管理学生、教师和课程的基础信息。
+- **信息发布**: 发布、更新和管理全校范围的教务通知。
+- **社区监督**: 监管所有课程的交流区，确保和谐的交流环境。
 
-### 4.1 开发环境
-- **操作系统**：Windows 10 或更高版本。
-- **开发语言**：Python 3.8 或更高版本。
-- **数据库**：SQL Server 2019 或更高版本。
-- **前端框架**：Streamlit 1.0 或更高版本。
+</details>
 
-### 4.2 开发工具
-- **代码编辑器**：Visual Studio Code、PyCharm 等。
-- **版本控制工具**：Git、GitHub 等。
-- **数据库管理工具**：SQL Server Management Studio、Navicat 等。
+## 🛠️ 技术栈
 
-## 5. 安装与部署
+- **前端框架**: [Streamlit](https://streamlit.io/)
+- **后端语言**: Python
+- **数据库**: [SQL Server](https://www.microsoft.com/en-us/sql-server)
+- **数据库连接**: `pyodbc` 或 `pymssql`
 
-### 5.1 环境搭建
-- 安装 Python 3.8 或更高版本。
-- 安装 SQL Server 2019 或更高版本，并创建相应的数据库。
-- 安装 Streamlit 1.0 或更高版本。
+## 🚀 快速开始
 
-### 5.2 代码部署
-- 克隆项目代码到本地。
-- 在项目根目录下运行 `pip install -r requirements.txt` 安装依赖包。
-- 终端运行 `streamlit run main.py` 启动系统。
+请按照以下步骤在本地环境中部署和运行本系统。
 
-## 6. 使用说明
+### 1. 先决条件
 
-### 6.1 用户登录
-- 打开系统界面，选择用户角色（学生、教师、管理员）。
-- 输入账号和密码，点击“连接”按钮进行登录。
-- 登录成功后，进入相应的功能界面。
+- 已安装 Python 3.8+
+- 已安装并运行 SQL Server 实例
+- 已安装 SQL Server 对应的 ODBC 驱动程序
 
-### 6.2 功能操作
-- **管理员**：在管理员功能界面，可以进行教师管理、学生管理、教务通知管理、课程统计、班级交流区管理、课程评价与预选课程管理等操作。
-- **教师**：在教师功能界面，可以进行信息查询、成绩录入、班级交流区、教务通知查看、密码修改等操作。
-- **学生**：在学生功能界面，可以进行信息查询、教学评价与课程预选、班级交流区、教务通知查看、密码修改等操作。
+### 2. 克隆仓库
+
+```bash
+git clone https://github.com/your-username/student-info-system.git
+cd student-info-system
+```
+
+### 3. 安装依赖
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. 数据库设置
+
+1.  在您的 SQL Server 实例中创建一个新的数据库（例如 `StudentDB`）。
+2.  执行项目提供的 SQL 脚本（例如 `database_setup.sql`）来创建所有需要的表和初始数据。
+
+### 5. 配置数据库连接
+
+为了安全地管理数据库连接信息，建议使用 Streamlit 的 `secrets.toml`。
+
+1.  在项目根目录创建 `.streamlit` 文件夹。
+2.  在其中创建 `secrets.toml` 文件，并填入您的数据库连接信息：
+
+    ```toml
+    # .streamlit/secrets.toml
+
+    [database]
+    driver = "{ODBC Driver 17 for SQL Server}"
+    server = "YOUR_SERVER_NAME_OR_IP"
+    database = "StudentDB"
+    username = "YOUR_USERNAME"
+    password = "YOUR_PASSWORD"
+    ```
+
+3.  在您的 Python 代码中，使用 `st.secrets` 来获取连接信息：
+    ```python
+    import streamlit as st
+    import pyodbc
+
+    db_config = st.secrets["database"]
+    conn_str = (
+        f"DRIVER={db_config['driver']};"
+        f"SERVER={db_config['server']};"
+        f"DATABASE={db_config['database']};"
+        f"UID={db_config['username']};"
+        f"PWD={db_config['password']};"
+    )
+    connection = pyodbc.connect(conn_str)
+    ```
+
+### 6. 运行应用
+
+```bash
+streamlit run app.py
+```
+
+应用将在您的浏览器中自动打开，您可以开始使用了！
+
+## 🎨 系统设计
+
+### 实体关系模型 (E-R Diagram)
+
+系统核心实体包括学生、教师和课程，它们之间通过授课和选修关系连接，构成了整个系统的基础。
+
+![ER图](./img/ER.png)
+
+### 数据库表结构
+
+<details>
+<summary><b>点击展开查看详细表结构</b></summary>
+
+#### 教师表 (teachers)
+| 字段名 | 数据类型 | 约束 | 描述 |
+|---|---|---|---|
+| `TeacherID` | INT | PRIMARY KEY | 教师唯一标识 |
+| `TeacherName` | NVARCHAR(100) | NOT NULL | 教师姓名 |
+| `Email` | NVARCHAR(100) | | 教师邮箱 |
+| `Position` | NVARCHAR(50) | | 教师职位 |
+
+---
+
+#### 学生表 (students)
+| 字段名 | 数据类型 | 约束 | 描述 |
+|---|---|---|---|
+| `StudentID` | INT | PRIMARY KEY | 学生唯一标识 |
+| `StudentName` | NVARCHAR(100) | NOT NULL | 学生姓名 |
+| `Email` | NVARCHAR(100) | | 学生邮箱 |
+| `Major` | NVARCHAR(50) | | 学生专业 |
+| `Grade` | NVARCHAR(20) | | 学生年级 |
+
+---
+
+#### 课程表 (courses)
+| 字段名 | 数据类型 | 约束 | 描述 |
+|---|---|---|---|
+| `CourseID` | INT | PRIMARY KEY | 课程唯一标识 |
+| `CourseName` | NVARCHAR(100) | NOT NULL | 课程名称 |
+| `Credits` | INT | | 课程学分 |
+| `TeacherID` | INT | FOREIGN KEY | 授课教师ID |
+
+---
+
+#### 选课表 (course_enrollments)
+| 字段名 | 数据类型 | 约束 | 描述 |
+|---|---|---|---|
+| `EnrollmentID` | INT | PRIMARY KEY, IDENTITY(1,1) | 选课记录唯一标识 |
+| `StudentID` | INT | FOREIGN KEY | 学生ID |
+| `CourseID` | INT | FOREIGN KEY | 课程ID |
+| `Grade` | INT | CHECK(Grade >= 0 AND Grade <= 100) | 成绩（0-100） |
+
+---
+
+#### 课堂交流表 (class_interaction)
+| 字段名 | 数据类型 | 约束 | 描述 |
+|---|---|---|---|
+| `InteractionID` | INT | PRIMARY KEY, IDENTITY(1,1) | 自动生成的记录ID |
+| `CourseID` | INT | NOT NULL | 班级号 |
+| `SpeakerType` | VARCHAR(50) | NOT NULL | 发言人身份 |
+| `SpeakerName` | VARCHAR(100) | NOT NULL | 发言人姓名 |
+| `Content` | TEXT | NOT NULL | 发言内容 |
+| `Timestamp` | DATETIME | DEFAULT GETDATE() | 发言时间 |
+
+---
+
+#### 教务通知表 (academic_notices)
+| 字段名 | 数据类型 | 约束 | 描述 |
+|---|---|---|---|
+| `NotificationID` | INT | PRIMARY KEY, IDENTITY(1,1) | 自动生成的通知ID |
+| `Title` | VARCHAR(255) | NOT NULL | 通知标题 |
+| `Content` | TEXT | NOT NULL | 通知内容 |
+| `Publisher` | VARCHAR(100) | NOT NULL | 发布人 |
+| `PublishDate` | DATETIME | DEFAULT GETDATE() | 发布日期 |
+| `Status` | VARCHAR(50) | DEFAULT 'Active' | 通知状态（Active/Expired）|
+
+</details>
+
+## 💡 未来展望
+
+- **性能优化**: 对高频查询和大数据表（如成绩表）进行索引优化和分区，提升系统响应速度。
+- **功能扩展**: 增加在线作业提交、教学质量评估、课程资源共享等功能。
+- **数据分析与可视化**: 集成仪表盘，为管理员提供学生成绩分布、选课热门度等数据洞察。
+- **移动端适配**: 进一步优化 Streamlit 界面，提升在移动设备上的用户体验。
+
+## 🤝 贡献
+
+欢迎对本项目提出改进意见和贡献代码！您可以通过提交 **Issue** 或 **Pull Request** 的方式参与进来。
+
+---
